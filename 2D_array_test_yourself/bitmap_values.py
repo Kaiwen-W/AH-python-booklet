@@ -11,9 +11,9 @@ def populateArray(arrayname, filename):
     with open(filename) as readfile:
         line = readfile.readline().rstrip("\n")
         while line:
-            # read the lie of a file
+            # read the line of a file
             items = line.split(",")
-            print("Items = ", items)
+            print("Items =", items)
 
             # reset the col_counter to ensure first item is placed at first position of the 2D array
             col_counter = 0
