@@ -15,7 +15,8 @@ def storeBikes():
             price[counter] = float(items[3])
             line = readfile.readline().rstrip("\n")
             counter += 1
-        print(name, gears, type, price)
+
+        # print(name, gears, type, price)
     return name, gears, type, price
 
 
@@ -31,5 +32,21 @@ def bubbleSort(array):
         print(array[i])
 
 
+def sortParallelArrays(name, gears, type, price):
+    n = len(price)
+
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if price[j] > price[j + 1]:
+                price[j], price[j + 1] = price[j + 1], price[j]
+
+                name[j], name[j + 1] = name[j + 1], name[j]
+                gears[j], gears[j + 1] = gears[j + 1], gears[j]
+                type[j], type[j + 1] = type[j + 1], type[j]
+
+    for i in range(n):
+        print(name[i], gears[i], type[i], price[i])
+
+
 name, gears, type, price = storeBikes()
-bubbleSort(price)
+sortParallelArrays(name, gears, type, price)
